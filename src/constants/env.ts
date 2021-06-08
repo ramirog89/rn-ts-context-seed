@@ -1,5 +1,5 @@
 export const ENV = {
   API: {
-    URL: 'localhost:8080/api'
+    URL: 'http://localhost:5000/'
   }
 }

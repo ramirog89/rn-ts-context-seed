@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -26,7 +27,6 @@ const Router = () => {
       }}>
         <Drawer.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
         <Drawer.Screen name="Profile" component={ProfileScreen} options={{ title: 'Profile' }} />
-        {/* <Drawer.Screen name="Sign Out" component={ProfileScreen} options={{ title: 'Sign Out' }} /> */}
       </Drawer.Navigator>
     ) : (
       <Stack.Navigator initialRouteName="Home">

@@ -31,12 +31,9 @@ export const AuthProvider = (props: IProviderProps) => {
   const signIn = useCallback(async (username: string, password: string) => {
     setLoading('authSignIn', true);
     try {
-      setTimeout(async () => {
-        const list = await deps.apiService.signIn(username, password);
-        dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { list } });
-        setLoading('authSignIn', false);
-
-      }, 2000);
+      const user = await deps.apiService.signIn(username, password);
+      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user } });
+      setLoading('authSignIn', false);
     } catch (e) {
       setLoading('authSignIn', false, true, e.message);
       addToast({ message: 'error', type: GeneralModel.ToastType.ERROR });

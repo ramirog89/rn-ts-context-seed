@@ -1,16 +1,20 @@
+import React from 'react';
+import { View, Text } from 'react-native';
 import { useGeneral } from "../../../context/general/provider";
+
+import { styles } from './styles';
 
 const ToastList = () => {
   const { state } = useGeneral();
 
   return (
-    <div style={{ position: 'fixed', bottom: '1rem', right: '1rem' }} className="toast-list">
+    <View style={styles.container}>
       {state.toastList.map((toast, index) => (
-        <div style={{ border: '1px solid gray', padding: '6px', borderRadius: '5px' }} key={index} className={toast.type}>
-            {toast.message}
-        </div>
+        <View style={[styles.toast, styles[toast.type]]} key={index}>
+          <Text>{toast.message}</Text>
+        </View>
       ))}
-    </div>
+    </View>
   );
 }
 
