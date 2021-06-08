@@ -1,3 +1,4 @@
+import React from 'react';
 import { IDependencies } from './rootState';
 
 export type Provider = React.JSXElementConstructor<React.PropsWithChildren<any>>;

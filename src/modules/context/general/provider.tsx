@@ -1,4 +1,4 @@
-import { useMemo, createContext, useReducer, useContext, useEffect } from 'react';
+import React, { useMemo, createContext, useReducer, useContext, useEffect } from 'react';
 
 import { GeneralModel } from '../../models';
 import { IProviderProps } from '../rootState';

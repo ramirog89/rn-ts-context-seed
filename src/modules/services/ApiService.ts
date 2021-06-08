@@ -1,12 +1,11 @@
-import axios from 'axios';
 
 import { ENV } from '../../constants';
 
 export class ApiService {
-  private http = axios;
+  private http = (params: any) => {};
 
-  public getTodo() {
-    return this.request('todo', { method: 'GET', data: {} });
+  public signIn(username: string, password: string) {
+    return this.request('todo', { method: 'POST', data: { username, password } });
   }
 
   private request(url: string, { method, data }: { method: any, data: any}) {
