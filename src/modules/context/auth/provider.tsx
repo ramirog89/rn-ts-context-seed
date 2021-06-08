@@ -31,8 +31,8 @@ export const AuthProvider = (props: IProviderProps) => {
   const signIn = useCallback(async (username: string, password: string) => {
     setLoading('authSignIn', true);
     try {
-      const user = await deps.apiService.signIn(username, password);
-      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user } });
+      const response = await deps.apiService.signIn(username, password);
+      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user: response.data } });
       setLoading('authSignIn', false);
     } catch (e) {
       setLoading('authSignIn', false, true, e.message);

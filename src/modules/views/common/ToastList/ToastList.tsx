@@ -10,7 +10,7 @@ const ToastList = () => {
   return (
     <View style={styles.container}>
       {state.toastList.map((toast, index) => (
-        <View style={[styles.toast, styles[toast.type]]} key={index}>
+        <View style={[styles.toast, styles?.[toast.type]]} key={index}>
           <Text>{toast.message}</Text>
         </View>
       ))}

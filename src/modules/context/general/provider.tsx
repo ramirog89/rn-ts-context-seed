@@ -9,7 +9,7 @@ import { reducer } from './reducer';
 export const GeneralContext = createContext<
   {
     state: IState;
-    addToast: (todo: GeneralModel.IToast) => void;
+    addToast: (toast: GeneralModel.IToast) => void;
     removeToast: (index: number) => void;
     setLoading: (key: string, isLoading: boolean, hasError?: boolean, error?: any) => void;
   } | null
@@ -26,8 +26,8 @@ export const useGeneral = () => {
 export const GeneralProvider = (props: IProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addToast = (todo: GeneralModel.IToast) => {
-    dispatch({ type: ActionType.ADD_TOAST , payload: { todo } });
+  const addToast = (toast: GeneralModel.IToast) => {
+    dispatch({ type: ActionType.ADD_TOAST , payload: { toast } });
   };
 
   const removeToast = (id: number) => {
@@ -41,6 +41,7 @@ export const GeneralProvider = (props: IProviderProps) => {
   useEffect(() => {
     if (state.toastList.length > 0) {
       setTimeout(() => {
+        console.log('me llamo?...?', state.toastList.length);
         removeToast(state.toastList.length);
       }, 3000);
     }

@@ -1,17 +1,16 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
+import ToastList from './views/common/ToastList';
+import Router from './Router';
 
 import { ContextProvider } from './context/provider';
-import Router from './Router';
 
 const App = () => {
   return (
     <ContextProvider>
-      <NavigationContainer>
-        <Router />
-      </NavigationContainer>
+      <Router />
+      <ToastList />
     </ContextProvider>
   );
 };
