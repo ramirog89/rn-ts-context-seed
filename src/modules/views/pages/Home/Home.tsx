@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation }: IHomeScreenProps) => {
           style={[
             styles.sectionTitle,
           ]}>
-            Aca va un texto cualquiera editado
+            Aca va un texto cualquiera editado sio
         </Text>
         <Button onPress={() => navigation.navigate('Profile')} title="ir al Perfil" />
       </View>

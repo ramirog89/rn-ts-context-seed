@@ -1,5 +1,6 @@
 import React, { useMemo, createContext, useReducer, useContext, useEffect } from 'react';
 
+import { wait } from '../../../utils/wait';
 import { GeneralModel } from '../../models';
 import { IProviderProps } from '../rootState';
 import { IState, initialState } from './state';
@@ -30,7 +31,8 @@ export const GeneralProvider = (props: IProviderProps) => {
     dispatch({ type: ActionType.ADD_TOAST , payload: { toast } });
   };
 
-  const removeToast = (id: number) => {
+  const removeToast = async (id: number) => {
+    await wait(3000);
     dispatch({ type: ActionType.REMOVE_TOAST , payload: { id } });
   };
 
@@ -39,11 +41,8 @@ export const GeneralProvider = (props: IProviderProps) => {
   }
 
   useEffect(() => {
-    if (state.toastList.length > 0) {
-      setTimeout(() => {
-        console.log('me llamo?...?', state.toastList.length);
-        removeToast(state.toastList.length);
-      }, 3000);
+    if (state.toastList.length) {
+      removeToast(state.toastList.length);
     }
   }, [state.toastList]);
 

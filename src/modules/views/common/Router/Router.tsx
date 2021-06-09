@@ -5,11 +5,11 @@ import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navi
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { useAuth } from './context/auth';
+import { useAuth } from '../../../context/auth';
 
-import HomeScreen from './views/pages/Home';
-import ProfileScreen from './views/pages/Profile';
-import SignInScreen from './views/pages/SignIn';
+import HomeScreen from '../../pages/Home';
+import ProfileScreen from '../../pages/Profile';
+import SignInScreen from '../../pages/SignIn';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -17,11 +17,12 @@ const Stack = createStackNavigator();
 const Router = () => {
   const { state, signOut } = useAuth();
 
+  console.log("state", state.isAuth);
+
   return (
     <NavigationContainer>
       {state.isAuth ? (
         <Drawer.Navigator
-          initialRouteName="Home"
           drawerContent={props => (
             <DrawerContentScrollView {...props}>
               <DrawerItemList {...props} />
@@ -33,7 +34,7 @@ const Router = () => {
           <Drawer.Screen name="Profile" component={ProfileScreen} options={{ title: 'Profile' }} />
         </Drawer.Navigator>
       ) : (
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator>
           <Stack.Screen name="SignIn" component={SignInScreen} />
         </Stack.Navigator>
       )}
