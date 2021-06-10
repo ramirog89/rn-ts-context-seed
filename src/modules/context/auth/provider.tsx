@@ -41,7 +41,6 @@ export const AuthProvider = (props: IProviderProps) => {
 
   const recoverSession = useCallback(async () => {
     const token = await deps.storageService.get('token');
-    console.log('token', token);
     if (token) {
       // fetch user with token
       // const user = await deps.apiService.getUser();

@@ -1,21 +1,12 @@
 import { ActionType } from './actions';
 import { IState } from './state';
-import { GeneralModel } from '../../models';
 
-export const reducer = (state: IState, action: GeneralModel.IAction<ActionType>) => {
-  switch (action.type) {
+export const reducer = (state: IState, { type, payload }: { type: ActionType, payload: any } ) => {
+  switch (type) {
     case ActionType.ADD_TOAST:
-      return { ...state, toastList: [...state.toastList, action.payload.toast] };
+      return { ...state, toastList: [...state.toastList, payload] };
     case ActionType.REMOVE_TOAST:
-      return { ...state, toastList: state.toastList.filter((toast, index) => action.payload.id === index) };
-    case ActionType.SET_LOADING:
-      return {
-        ...state,
-        loading: {
-          ...state.loading,
-          [action.payload.key]: { isLoading: action.payload.isLoading, hasError: action.payload.hasError, error: action.payload.error }
-        }
-      };
+      return { ...state, toastList: state.toastList.filter((toast) => payload.id !== toast.id) };
     default:
       return state;
   }

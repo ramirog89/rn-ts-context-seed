@@ -11,8 +11,6 @@ export const GeneralContext = createContext<
   {
     state: IState;
     addToast: (toast: GeneralModel.IToast) => void;
-    removeToast: (index: number) => void;
-    setLoading: (key: string, isLoading: boolean, hasError?: boolean, error?: any) => void;
   } | null
 >(null);
 
@@ -27,26 +25,14 @@ export const useGeneral = () => {
 export const GeneralProvider = (props: IProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addToast = (toast: GeneralModel.IToast) => {
-    dispatch({ type: ActionType.ADD_TOAST , payload: { toast } });
+  const addToast = async (toast: GeneralModel.IToast) => {
+    const id = Date.now().toString();
+    dispatch({ type: ActionType.ADD_TOAST, payload: { id, toast } });
+    await wait(2000);
+    dispatch({ type: ActionType.REMOVE_TOAST, payload: { id } });
   };
 
-  const removeToast = async (id: number) => {
-    await wait(3000);
-    dispatch({ type: ActionType.REMOVE_TOAST , payload: { id } });
-  };
-
-  const setLoading = (key: string, isLoading: boolean, hasError: boolean = false, error: any = null) => {
-    dispatch({ type: ActionType.SET_LOADING , payload: { key, isLoading, hasError, error } });
-  }
-
-  useEffect(() => {
-    if (state.toastList.length) {
-      removeToast(state.toastList.length);
-    }
-  }, [state.toastList]);
-
-  const value = useMemo(() => ({ state, addToast, removeToast, setLoading }), [state]);
+  const value = useMemo(() => ({ state, addToast }), [state]);
 
   return <GeneralContext.Provider value={value} {...props} />
 };
