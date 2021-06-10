@@ -17,8 +17,6 @@ const Stack = createStackNavigator();
 const Router = () => {
   const { state, signOut } = useAuth();
 
-  console.log("state", state.isAuth);
-
   return (
     <NavigationContainer>
       {state.isAuth ? (

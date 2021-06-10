@@ -9,7 +9,6 @@ interface IProfileSceenProps {
 
 const ProfileScreen = ({ navigation }: IProfileSceenProps) => {
   const navigateHome = () => {
-    console.log('hola...?');
     navigation.navigate('Home');
   }
   return (

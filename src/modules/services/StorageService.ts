@@ -17,7 +17,7 @@ export class StorageService {
       const value = await this.service.get(key);
       return safeParse(value) as T;
     } catch (e) {
-      throw new Error(`Error at get key: ${key}. detail: ${e}`);
+      return;
     }
   }
 

@@ -1,6 +1,6 @@
 import React, { useMemo, createContext, useReducer, useContext, useCallback } from 'react';
 
-import { GeneralModel } from '../../models';
+import { GeneralModel, UserModel } from '../../models';
 import { IProviderProps } from '../rootState';
 import { IState, initialState } from './state';
 import { ActionType } from './actions';
@@ -9,7 +9,7 @@ import { useGeneral } from '../general';
 
 interface IAuthContext {
   state: IState;
-  signIn: (username: string, password: string) => void;
+  signIn: (credentials: UserModel.ILoginRequest) => void;
   signOut: () => void;
   recoverSession: () => void;
 }
@@ -27,48 +27,38 @@ export const useAuth = () => {
 export const AuthProvider = (props: IProviderProps) => {
   const { deps } = props;
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { addToast, setLoading } = useGeneral();
+  const { addToast } = useGeneral();
 
-  const signIn = useCallback(async (username: string, password: string) => {
-    setLoading('authSignIn', true);
+  const signIn = useCallback(async (credentials: UserModel.ILoginRequest) => {
     try {
-      const response = await deps.apiService.signIn(username, password);
-      console.log('response', response);
-      await deps.storageService.set('token', response.data);
-      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user: response.data } });
-      setLoading('authSignIn', false);
+      const response = await deps.apiService.signIn(credentials);
+      await deps.storageService.set('token', response);
+      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user: response } });
     } catch (e) {
-      setLoading('authSignIn', false, true, e.message);
-      addToast({ message: 'error', type: GeneralModel.ToastType.ERROR });
+      addToast({ message: 'authSignIn error', type: GeneralModel.ToastType.ERROR });
     }
-  }, [setLoading, dispatch, addToast]);
+  }, [dispatch]);
 
   const recoverSession = useCallback(async () => {
-    setLoading('authRecoverSession', true);
-    try {
-      const token = await deps.storageService.get('token');
-      console.log('token?', token);
+    const token = await deps.storageService.get('token');
+    console.log('token', token);
+    if (token) {
       // fetch user with token
       // const user = await deps.apiService.getUser();
       dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user: {} } });
-      setLoading('authRecoverSession', false);
-    } catch (e) {
-      setLoading('authRecoverSession', false, true, e.message);
-      addToast({ message: 'error', type: GeneralModel.ToastType.ERROR });
+    } else {
+      dispatch({ type: ActionType.AUTH_SIGN_OUT, payload: {} });
     }
   }, []);
 
   const signOut = useCallback(async () => {
-    setLoading('authSignOut', true);
     try {
       await deps.storageService.remove('token');
       dispatch({ type: ActionType.AUTH_SIGN_OUT, payload: {} });
-      setLoading('authSignOut', false);
     } catch (e) {
-      setLoading('authSignOut', false, true, e.message);
-      addToast({ message: 'error', type: GeneralModel.ToastType.ERROR });
+      addToast({ message: 'authSignOut error', type: GeneralModel.ToastType.ERROR });
     }
-  }, [setLoading, dispatch]);
+  }, [dispatch]);
 
   const value = useMemo(() => ({ state, signIn, signOut, recoverSession }), [state]);
 
