@@ -8,10 +8,10 @@ export const reducer = (state: IState, action: GeneralModel.IAction<ActionType>)
       return {
         isAuth: true,
         user: action.payload.user,
-        sessionCheck: true,
+        sessionChecked: true,
       };
     case ActionType.AUTH_SIGN_OUT:
-      return { isAuth: false, user: null, sessionCheck: true };
+      return { isAuth: false, user: null, sessionChecked: true };
     default:
       return state;
   }

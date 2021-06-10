@@ -6,7 +6,7 @@ import { UserModel } from '../models';
 export class ApiService {
   private http = axios;
 
-  public signIn({ username, password }: UserModel.ILoginRequest): Promise<UserModel.IUser> {
+  public signIn({ username, password }: UserModel.ILoginRequest): Promise<UserModel.ILoginResponse> {
     return this.request('auth/login', { method: 'POST', data: { username, password } });
   }
 

@@ -1,4 +1,5 @@
 import React, { useMemo, createContext, useReducer, useContext, useCallback } from 'react';
+import jwt_decode from 'jwt-decode';
 
 import { GeneralModel, UserModel } from '../../models';
 import { IProviderProps } from '../rootState';
@@ -29,22 +30,22 @@ export const AuthProvider = (props: IProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addToast } = useGeneral();
 
-  const signIn = useCallback(async (credentials: UserModel.ILoginRequest) => {
+  const signIn = useCallback(async  (credentials: UserModel.ILoginRequest) => {
     try {
       const response = await deps.apiService.signIn(credentials);
-      await deps.storageService.set('token', response);
-      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user: response } });
+      const user = jwt_decode(response.token);
+      await deps.storageService.set('token', response.token);
+      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user } });
     } catch (e) {
       addToast({ message: 'authSignIn error', type: GeneralModel.ToastType.ERROR });
     }
   }, [dispatch]);
 
   const recoverSession = useCallback(async () => {
-    const token = await deps.storageService.get('token');
+    const token: string | undefined = await deps.storageService.get('token');
     if (token) {
-      // fetch user with token
-      // const user = await deps.apiService.getUser();
-      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user: {} } });
+      const user = jwt_decode(token);
+      dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user } });
     } else {
       dispatch({ type: ActionType.AUTH_SIGN_OUT, payload: {} });
     }

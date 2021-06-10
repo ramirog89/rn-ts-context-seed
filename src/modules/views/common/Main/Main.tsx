@@ -18,10 +18,10 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    if (state.sessionCheck) {
+    if (state.sessionChecked) {
       setLoading(false);
     }
-  }, [state.sessionCheck]);
+  }, [state.sessionChecked]);
 
   useEffect(() => {
     if (!isLoading) {
