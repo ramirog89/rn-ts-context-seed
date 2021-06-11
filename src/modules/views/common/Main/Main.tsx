@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import SplashScreen from 'react-native-splash-screen';
 
 import { useAuth } from '../../../context/auth';
 
@@ -22,12 +21,6 @@ const Main = () => {
       setLoading(false);
     }
   }, [state.sessionChecked]);
-
-  useEffect(() => {
-    if (!isLoading) {
-      SplashScreen.hide();
-    }
-  }, [isLoading]);
 
   if (isLoading) {
     return (

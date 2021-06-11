@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks'
-import { useTodo } from './provider';
+import { useAuth } from './provider';
 
-describe('todo provider', () => {
-  describe('useTodo', () => {
+describe('auth provider', () => {
+  describe('useAuth', () => {
     it('should throw error when no context provided', () => {
-      const { result } = renderHook(() => useTodo())
+      const { result } = renderHook(() => useAuth())
       expect(() => {
         result.current
-      }).toThrowError('TodoContext is not wrapped with TodoContext.Provider');
+      }).toThrowError('AuthContext is not wrapped with AuthContext.Provider');
     });
   });
 });

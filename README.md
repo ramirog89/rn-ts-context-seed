@@ -14,15 +14,14 @@
 
 
 # TODO
-
+* Agregar testing
+* Generar Build.apk y testear en el celular
 * Mejorar estilos
 * Usar bien los Safe Area Providers (testearlos)
 
-* Generar Build.apk y testear en el celular
 * Acceder a cosas como la Camara, file system, y cosas asi para entender
 * Agregar configuracion por entornos? creo que no tiene mucho sentido igual, o si.
 
-* Agregar testing
 * Add deep linking
 
 # Referencias

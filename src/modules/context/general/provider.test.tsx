@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks'
-import { useTodo } from './provider';
+import { useGeneral } from './provider';
 
-describe('todo provider', () => {
-  describe('useTodo', () => {
+describe('general provider', () => {
+  describe('useGeneral', () => {
     it('should throw error when no context provided', () => {
-      const { result } = renderHook(() => useTodo())
+      const { result } = renderHook(() => useGeneral())
       expect(() => {
         result.current
-      }).toThrowError('TodoContext is not wrapped with TodoContext.Provider');
+      }).toThrowError('GeneralContext is not wrapped with GeneralContext.Provider');
     });
   });
 });

@@ -2,20 +2,28 @@ import { reducer } from './reducer';
 import { ActionType } from './actions';
 import { initialState } from './state';
 
-import { getTodo_1 } from '../../../test/entities';
+import { getUser1 } from '../../../test/entities';
 
-describe('todo reducer', () => {
+describe('auth reducer', () => {
   it('should return state without mutation when no switch case match', () => {
     expect(reducer(initialState, { type: null, payload: null })).toBe(initialState);
   });
 
-  it('should return new state on todo ActionType.ADD_TODO', () => {
-    expect(reducer(initialState, { type: ActionType.ADD_TODO, payload: { todo: getTodo_1() } })).toEqual({
+  it('should return new state on todo ActionType.AUTH_SIGN_IN_SUCCESS', () => {
+    expect(reducer(initialState, { type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user: getUser1() } })).toEqual({
       ...initialState,
-      todoList: [
-        ...initialState.todoList,
-        getTodo_1()
-      ]
+      isAuth: true,
+      user: getUser1(),
+      sessionChecked: true
+    });
+  });
+
+  it('should return new state on todo ActionType.AUTH_SIGN_OUT', () => {
+    expect(reducer(initialState, { type: ActionType.AUTH_SIGN_OUT, payload: {} })).toEqual({
+      ...initialState,
+      isAuth: false,
+      user: null,
+      sessionChecked: true
     });
   });
 });
