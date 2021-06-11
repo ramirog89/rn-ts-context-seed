@@ -7,11 +7,14 @@ const SignInScreen = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isLoading, setLoading] = useState<boolean>(false);
-
+  
   const onSignIn = useCallback(async () => {
     setLoading(true);
-    await signIn({ username, password });
-    setLoading(false);
+    try {
+      await signIn({ username, password });
+    } catch (e) {
+      setLoading(false);
+    }
   }, [username, password, signIn]);
 
   return (

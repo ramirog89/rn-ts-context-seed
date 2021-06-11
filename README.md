@@ -9,12 +9,21 @@
   * Usar Animated.View para mejorar el toast
   * Es una cuestion de que la promise se bloquea hasta que hay un evento manual. Noseporque 
   * Al final era cuesiton que de las DevTools andan para el orto... mejor usar console log ya
+* Auth Flow completed
+* Integrar desarrollo local (como pegarle a localhost) -> 10.0.2.2 es localhost en el emulador
+
 
 # TODO
-* Integrar desarrollo local (como pegarle a localhost)
+
+* Mejorar estilos
 * Usar bien los Safe Area Providers (testearlos)
+
 * Generar Build.apk y testear en el celular
+* Acceder a cosas como la Camara, file system, y cosas asi para entender
 * Agregar configuracion por entornos? creo que no tiene mucho sentido igual, o si.
 
 * Agregar testing
 * Add deep linking
+
+# Referencias
+https://revs.runtime-revolution.com/connecting-react-native-to-localhost-65e7ddf43d02

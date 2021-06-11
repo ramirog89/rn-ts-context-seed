@@ -38,6 +38,7 @@ export const AuthProvider = (props: IProviderProps) => {
       dispatch({ type: ActionType.AUTH_SIGN_IN_SUCCESS, payload: { user } });
     } catch (e) {
       addToast({ message: 'authSignIn error', type: GeneralModel.ToastType.ERROR });
+      throw new Error('authSignIn error');
     }
   }, [dispatch]);
 

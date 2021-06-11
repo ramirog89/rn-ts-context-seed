@@ -7,9 +7,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { useAuth } from '../../../context/auth';
 
-import HomeScreen from '../../pages/Home';
-import ProfileScreen from '../../pages/Profile';
-import SignInScreen from '../../pages/SignIn';
+import HomeScreen from '../../screen/Home';
+import ProfileScreen from '../../screen/Profile';
+import SignInScreen from '../../screen/SignIn';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
