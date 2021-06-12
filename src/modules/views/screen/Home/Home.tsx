@@ -1,23 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import Layout from '../../common/Layout';
 
-interface IHomeScreenProps {
-  navigation: any;
-}
-
-const HomeScreen = ({ navigation }: IHomeScreenProps) => {
+const HomeScreen = () => {
   return (
-    <View>
-      <View style={styles.sectionContainer}>
-        <Text
-          style={[
-            styles.sectionTitle,
-          ]}>
-            Aca va un texto cualquiera editado sio
-        </Text>
-        <Button onPress={() => navigation.navigate('Profile')} title="ir al Perfil" />
+    <Layout>
+      <View>
+        <View style={styles.sectionContainer}>
+          <Text
+            style={[
+              styles.sectionTitle,
+            ]}>
+              Aca va un texto cualquiera editado sio
+          </Text>
+        </View>
       </View>
-    </View>
+    </Layout>
   );
 }
 

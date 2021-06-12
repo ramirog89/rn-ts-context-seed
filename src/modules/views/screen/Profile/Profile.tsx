@@ -1,28 +1,23 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View } from 'react-native';
+import Layout from '../../common/Layout';
 
 import { styles } from './styles';
 
-interface IProfileSceenProps {
-  navigation: any;
-}
-
-const ProfileScreen = ({ navigation }: IProfileSceenProps) => {
-  const navigateHome = () => {
-    navigation.navigate('Home');
-  }
+const ProfileScreen = () => {
   return (
-    <View>
-      <View style={styles.sectionContainer}>
-        <Text
-          style={[
-            styles.sectionTitle,
-          ]}>
-            Aca va mi perfil
-            <Button onPress={navigateHome} title="Go back home" />
-        </Text>
+    <Layout>
+      <View>
+        <View style={styles.sectionContainer}>
+          <Text
+            style={[
+              styles.sectionTitle,
+            ]}>
+              Aca va mi perfil
+          </Text>
+        </View>
       </View>
-    </View>
+    </Layout>
   );
 }
 

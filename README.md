@@ -11,16 +11,16 @@
   * Al final era cuesiton que de las DevTools andan para el orto... mejor usar console log ya
 * Auth Flow completed
 * Integrar desarrollo local (como pegarle a localhost) -> 10.0.2.2 es localhost en el emulador
+* Agregar testing
 
 
 # TODO
-* Agregar testing
-* Generar Build.apk y testear en el celular
 * Mejorar estilos
 * Usar bien los Safe Area Providers (testearlos)
-
 * Acceder a cosas como la Camara, file system, y cosas asi para entender
 * Agregar configuracion por entornos? creo que no tiene mucho sentido igual, o si.
+* Generar Build.apk y testear en el celular
+
 
 * Add deep linking
 
