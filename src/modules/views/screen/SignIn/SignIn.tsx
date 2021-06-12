@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, Button } from 'react-native';
+import { Form, Item, Input } from 'native-base';
+
 import { useAuth } from '../../../context/auth';
 
 const SignInScreen = () => {
@@ -19,17 +21,24 @@ const SignInScreen = () => {
 
   return (
     <View>
-      <TextInput
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+
+      <Form>
+        <Item>
+          <Input
+            placeholder="Username"
+            value={username}
+            onChangeText={setUsername}
+          />
+        </Item>
+        <Item last>
+          <Input
+            placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+          />
+        </Item>
+      </Form>
       <Button title="Sign in" disabled={isLoading} onPress={onSignIn} />
     </View>
   );

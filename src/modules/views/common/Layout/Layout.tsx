@@ -5,9 +5,10 @@ import { DrawerActions } from '@react-navigation/native';
 
 interface ILayoutProps {
   children: React.ReactNode;
+  showBack: boolean;
 }
 
-const Layout = ({ children }: ILayoutProps) => {
+const Layout = ({ children, showBack = true }: ILayoutProps) => {
   const navigation = useNavigation();
   const route = useRoute();
 
@@ -15,7 +16,7 @@ const Layout = ({ children }: ILayoutProps) => {
     <Container>
       <Header>
         <Left>
-          {route.name !== 'Home' && (
+          {!showBack && route.name !== 'Home' && (
             <Button onPress={() => navigation.goBack()} transparent>
               <Icon name='arrow-back' />
             </Button>
