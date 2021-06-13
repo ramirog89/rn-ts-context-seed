@@ -29,7 +29,7 @@ const Layout = ({ children, showBack = true }: ILayoutProps) => {
           </Button>
         </Right>
       </Header>
-      <Content>
+      <Content style={{ padding: 5 }}>
         {children}
       </Content>
     </Container>

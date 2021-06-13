@@ -1,20 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Card, CardItem, Text, Body } from 'native-base';
 import Layout from '../../common/Layout';
 
 const HomeScreen = () => {
   return (
     <Layout>
-      <View>
-        <View style={styles.sectionContainer}>
-          <Text
-            style={[
-              styles.sectionTitle,
-            ]}>
-              Aca va un texto cualquiera editado sio
-          </Text>
-        </View>
-      </View>
+      <Card>
+        <CardItem header>
+          <Text>NativeBase</Text>
+        </CardItem>
+        <CardItem>
+          <Body>
+            <Text>
+              Aplicacion de prueba
+            </Text>
+          </Body>
+        </CardItem>
+        <CardItem footer>
+          <Text>GeekyAnts</Text>
+        </CardItem>
+      </Card>
     </Layout>
   );
 }
