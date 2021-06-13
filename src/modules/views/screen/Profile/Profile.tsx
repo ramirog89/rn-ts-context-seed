@@ -11,10 +11,8 @@ const ProfileScreen = () => {
       <View>
         <View style={styles.sectionContainer}>
           <Text
-            style={[
-              styles.sectionTitle,
-            ]}>
-              Aca va mi perfil
+            style={styles.sectionTitle}>
+              Profile Screen
           </Text>
         </View>
       </View>

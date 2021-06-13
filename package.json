@@ -60,12 +60,19 @@
       "json",
       "node"
     ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation)"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/test/setup.ts"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
       "!src/modules/models/**/*.*",
       "!src/**/styles.ts",
-      "!src/modules/context/compose.ts",
-      "!src/modules/context/provider.ts",
+      "!src/modules/context/**/actions.ts",
+      "!src/modules/context/compose.tsx",
+      "!src/modules/context/provider.tsx",
       "!src/modules/context/rootState.ts",
       "!src/modules/App.tsx",
       "!src/test/**/*.*",

@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
 import { Card, CardItem, Text, Body } from 'native-base';
+
 import Layout from '../../common/Layout';
 
 const HomeScreen = () => {
@@ -8,32 +8,21 @@ const HomeScreen = () => {
     <Layout>
       <Card>
         <CardItem header>
-          <Text>NativeBase</Text>
+          <Text style={{ fontWeight: 'bold' }}>Example Base App</Text>
         </CardItem>
         <CardItem>
           <Body>
             <Text>
-              Aplicacion de prueba
+              This repository it provides a base implementation.
+              It provides the core architecture conventions.
+              Uses context as state management, react router for having multiple screens, NativeBase as Component library and it has the minimal setup for authentication flow using a secure storage to save the token, Toasts for handle errors, and loading scenarios, and tests for each scenario
+              Anything else is up to you.
             </Text>
           </Body>
-        </CardItem>
-        <CardItem footer>
-          <Text>GeekyAnts</Text>
         </CardItem>
       </Card>
     </Layout>
   );
 }
-
- const styles = StyleSheet.create({
-   sectionContainer: {
-     marginTop: 32,
-     paddingHorizontal: 24,
-   },
-   sectionTitle: {
-     fontSize: 24,
-     fontWeight: '600',
-   },
- });
 
 export default HomeScreen;
