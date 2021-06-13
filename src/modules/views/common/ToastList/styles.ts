@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles: any = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: 25,
+    top: 10,
     display: 'flex',
     width: '100%',
     justifyContent: 'center',
@@ -11,12 +11,14 @@ export const styles: any = StyleSheet.create({
     zIndex: 10
   },
   toast: {
-    width: '50%',
-    borderColor: 'gray',
-    borderWidth: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80%',
     borderRadius: 5,
-    padding: 5,
-    color: 'white'
+    padding: 10,
+    opacity: 0.9,
+    marginBottom: 5
   },
   success: {
     backgroundColor: 'green'
@@ -25,6 +27,9 @@ export const styles: any = StyleSheet.create({
     backgroundColor: 'yellow'
   },
   error: {
-    backgroundColor: 'red'
+    backgroundColor: '#C93515',
+  },
+  toastMessage: {
+    color: '#FFFFFF'
   }
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -21,10 +22,27 @@ const Router = () => {
     <NavigationContainer>
       {state.isAuth ? (
         <Drawer.Navigator
+          drawerStyle={{
+            backgroundColor: '#29434e',
+            paddingTop: 3,
+            width: '85%',
+          }}
           drawerContent={props => (
             <DrawerContentScrollView {...props}>
-              <DrawerItemList {...props} />
-              <DrawerItem label="Logout" onPress={signOut} />
+              <DrawerItemList
+                {...props}
+                activeTintColor="#FFFFFF"
+                inactiveTintColor="#FFFFFF"
+                activeBackgroundColor="#546e7a"
+                itemStyle={{ width: '100%', marginLeft: 0, paddingLeft: 10, borderRadius: 0 }}
+                labelStyle={{ color: '#FFFFFF' }}
+              />
+              <DrawerItem
+                style={{ marginLeft: 0, paddingLeft: 10, }}
+                labelStyle={{ color: '#FFFFFF' }}
+                label="Logout"
+                onPress={signOut}
+              />
             </DrawerContentScrollView>
           )}
         >
@@ -33,7 +51,20 @@ const Router = () => {
         </Drawer.Navigator>
       ) : (
         <Stack.Navigator>
-          <Stack.Screen name="SignIn" component={SignInScreen} />
+          <Stack.Screen
+            name="SignIn"
+            component={SignInScreen}
+            options={{
+              title: 'Sign In',
+              headerTintColor: '#FFFFFF',
+              headerStyle: {
+                backgroundColor: '#29434e',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flex: 1,
+              },
+            }}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

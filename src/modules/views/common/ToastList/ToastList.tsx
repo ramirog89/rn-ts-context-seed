@@ -11,7 +11,7 @@ const ToastList = () => {
     <View style={styles.container}>
       {state.toastList.map((item) => (
         <View style={[styles.toast, styles?.[item.toast.type]]} key={item.id}>
-          <Text>{item.toast.message}</Text>
+          <Text style={styles.toastMessage}>{item.toast.message}</Text>
         </View>
       ))}
     </View>

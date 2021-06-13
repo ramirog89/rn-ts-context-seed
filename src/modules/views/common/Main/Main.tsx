@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaView, ActivityIndicator } from 'react-native';
 
 import { useAuth } from '../../../context/auth';
 
@@ -34,15 +33,12 @@ const Main = () => {
   }
 
   return (
-    <SafeAreaProvider>
-      <StatusBar translucent={true} backgroundColor="transparent" barStyle="light-content" />
-      <SafeAreaView style={{ flex: 1 }}>
-        <ErrorBoundary>
-          <Router />
-        </ErrorBoundary>
-        <ToastList />
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ErrorBoundary>
+        <Router />
+      </ErrorBoundary>
+      <ToastList />
+    </SafeAreaView>
   );
 }
 

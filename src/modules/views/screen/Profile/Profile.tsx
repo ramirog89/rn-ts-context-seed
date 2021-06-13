@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+
 import Layout from '../../common/Layout';
 
 import { styles } from './styles';
 
 const ProfileScreen = () => {
   return (
-    <Layout>
+    <Layout showBack={true}>
       <View>
         <View style={styles.sectionContainer}>
           <Text

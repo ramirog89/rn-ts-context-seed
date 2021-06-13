@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
-import { View, Button } from 'react-native';
-import { Form, Item, Input } from 'native-base';
+import { View } from 'react-native';
+import { Form, Item, Input, Button, Text, Icon, Container, Content } from 'native-base';
 
 import { useAuth } from '../../../context/auth';
 
@@ -20,27 +20,36 @@ const SignInScreen = () => {
   }, [username, password, signIn]);
 
   return (
-    <View>
-
-      <Form>
-        <Item>
-          <Input
-            placeholder="Username"
-            value={username}
-            onChangeText={setUsername}
-          />
-        </Item>
-        <Item last>
-          <Input
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
-        </Item>
-      </Form>
-      <Button title="Sign in" disabled={isLoading} onPress={onSignIn} />
-    </View>
+    <Container style={{ backgroundColor: '#546e7a' }}>
+      <Content>
+        <Form style={{ width: '95%', marginTop: '20%', marginBottom: '7%', }}>
+          <Item>
+            <Icon name="person" style={{ color: '#FFFFFF' }} />
+            <Input
+              style={{ color: '#FFFFFF' }}
+              placeholderTextColor="#BBBBBB"
+              placeholder="Username"
+              value={username}
+              onChangeText={setUsername}
+            />
+          </Item>
+          <Item>
+            <Icon name="key" style={{ color: '#FFFFFF' }} />
+            <Input
+              style={{ color: '#FFFFFF' }}
+              placeholder="Password"
+              placeholderTextColor="#BBBBBB"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+            />
+          </Item>
+        </Form>
+        <Button style={{ marginTop: 15, backgroundColor: '#29434e' }} full disabled={isLoading} onPress={onSignIn}>
+          <Text>Sign In</Text>
+        </Button>
+      </Content>
+    </Container>
   );
 }
 
