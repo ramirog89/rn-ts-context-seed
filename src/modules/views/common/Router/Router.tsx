@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { createDrawerNavigator } from '@react-navigation/drawer';

@@ -57,11 +57,10 @@
       "tsx",
       "js",
       "jsx",
-      "json",
-      "node"
+      "json"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation)"
+      "/node_modules/(?!native-base)/"
     ],
     "setupFiles": [
       "<rootDir>/src/test/setup.ts"

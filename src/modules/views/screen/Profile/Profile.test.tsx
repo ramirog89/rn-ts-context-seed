@@ -3,15 +3,15 @@ import React from 'react';
 import { mockedRoute } from '../../../../test/setup';
 import { render } from '../../../../test/render';
 
-import Home from './Home';
+import Profile from './Profile';
 
-describe('HomeScreen', () => {
+describe('ProfileScreen', () => {
   beforeEach(() => {
-    mockedRoute.mockReturnValue('Home');
+    mockedRoute.mockReturnValue('Profile');
   });
 
   it('should render', () => {
-    const { toJSON } = render(<Home />);
+    const { toJSON } = render(<Profile />);
     expect(toJSON()).toMatchSnapshot();
   });
 });

@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import { View } from 'react-native';
 import { Form, Item, Input, Button, Text, Icon, Container, Content } from 'native-base';
 
 import { useAuth } from '../../../context/auth';
