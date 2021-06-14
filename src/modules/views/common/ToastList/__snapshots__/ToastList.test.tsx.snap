@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToastList should render 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "justifyContent": "center",
+      "position": "absolute",
+      "top": 10,
+      "width": "100%",
+      "zIndex": 10,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderRadius": 5,
+          "display": "flex",
+          "justifyContent": "center",
+          "marginBottom": 5,
+          "opacity": 0.9,
+          "padding": 10,
+          "width": "80%",
+        },
+        Object {
+          "backgroundColor": "green",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+        }
+      }
+    >
+      tosat
+    </Text>
+  </View>
+</View>
+`;

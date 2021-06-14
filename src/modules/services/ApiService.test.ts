@@ -19,4 +19,15 @@ describe('ApiService', () => {
       url: 'auth/login'
     });
   });
+
+  it('request', () => {
+    (apiService as any).request('path', { method: 'GET', data: {} });
+    expect((apiService as any).http).toHaveBeenCalledWith({
+      baseURL: ENV.API.URL,
+      headers: expect.any(Object),
+      data: JSON.stringify({}),
+      method: 'GET',
+      url: 'path'
+    });
+  });
 });

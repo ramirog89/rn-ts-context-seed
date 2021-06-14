@@ -16,13 +16,11 @@
 
 # TODO
 * Mejorar estilos
-* Usar bien los Safe Area Providers (testearlos)
 * Acceder a cosas como la Camara, file system, y cosas asi para entender
 * Agregar configuracion por entornos? creo que no tiene mucho sentido igual, o si.
 * Generar Build.apk y testear en el celular
-
-
 * Add deep linking
+
 
 # Referencias
 https://revs.runtime-revolution.com/connecting-react-native-to-localhost-65e7ddf43d02
