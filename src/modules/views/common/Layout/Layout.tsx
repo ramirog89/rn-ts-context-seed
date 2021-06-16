@@ -16,7 +16,7 @@ const Layout = ({ children, showBack = true }: ILayoutProps) => {
     <Container>
       <Header noLeft={!showBack || route.name === 'Home'} style={{ backgroundColor: '#29434e' }}>
         <Left>
-          <Button onPress={() => navigation.goBack()} transparent>
+          <Button testID="goBackButton" onPress={() => navigation.goBack()} transparent>
             <Icon name='arrow-back' />
           </Button>
         </Left>
@@ -24,7 +24,7 @@ const Layout = ({ children, showBack = true }: ILayoutProps) => {
           <Title>{route.name}</Title>
         </Body>
         <Right>
-          <Button onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} transparent>
+          <Button testID="openMenuButton" onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} transparent>
             <Icon name='menu' />
           </Button>
         </Right>

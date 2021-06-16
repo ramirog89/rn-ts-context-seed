@@ -30,7 +30,7 @@ export const AuthProvider = (props: IProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { addToast } = useGeneral();
 
-  const signIn = useCallback(async  (credentials: UserModel.ILoginRequest) => {
+  const signIn = useCallback(async (credentials: UserModel.ILoginRequest) => {
     try {
       const response = await deps.apiService.signIn(credentials);
       const user = jwt_decode(response.token);

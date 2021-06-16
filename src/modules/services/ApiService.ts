@@ -20,8 +20,11 @@ export class ApiService {
         'Content-Type': 'application/json'
       },
       data: JSON.stringify(data)
-    }).then((response) => {
-      return response.data;
-    });
+    }).then(
+      /* istanbul ignore next */
+      (response) => {
+        return response.data;
+      }
+    );
   }
 }

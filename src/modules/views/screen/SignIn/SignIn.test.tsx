@@ -18,7 +18,7 @@ describe('SignInScreen', () => {
     expect(toJSON()).toMatchSnapshot();
   });
 
-  it('should render', () => {
+  it('should sign in', () => {
     const { getByTestId } = render(
       <AuthContext.Provider value={{
         state: { isAuth: false, user: null, sessionChecked: false },

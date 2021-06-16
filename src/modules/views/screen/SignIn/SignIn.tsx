@@ -14,6 +14,7 @@ const SignInScreen = () => {
     try {
       await signIn({ username, password });
     } catch (e) {
+      /* istanbul ignore next */
       setLoading(false);
     }
   }, [username, password, signIn]);

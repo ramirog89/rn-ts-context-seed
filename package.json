@@ -70,6 +70,7 @@
       "!src/modules/models/**/*.*",
       "!src/**/styles.ts",
       "!src/modules/context/**/actions.ts",
+      "!src/modules/context/**/provider.tsx",
       "!src/modules/context/compose.tsx",
       "!src/modules/context/provider.tsx",
       "!src/modules/context/rootState.ts",

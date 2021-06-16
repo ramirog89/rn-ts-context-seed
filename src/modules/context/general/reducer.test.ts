@@ -19,15 +19,15 @@ describe('general reducer', () => {
     });
   });
 
-  it('should return new state on todo ActionType.ADD_TOAST', () => {
+  it('should return new state on todo ActionType.REMOVE_TOAST', () => {
     const toastInitialState = {
       ...initialState,
       toastList: [{
         id: 1,
         toast: getToast1()
       }]
-    };
-    expect(reducer(initialState, { type: ActionType.REMOVE_TOAST, payload: { id: 1 } })).toEqual({
+    } as any;
+    expect(reducer(toastInitialState, { type: ActionType.REMOVE_TOAST, payload: { id: 1 } })).toEqual({
       ...initialState,
       toastList: []
     });

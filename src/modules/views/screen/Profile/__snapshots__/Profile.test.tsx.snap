@@ -95,6 +95,7 @@ exports[`ProfileScreen should render 1`] = `
                 "shadowRadius": null,
               }
             }
+            testID="goBackButton"
           >
             <Text
               allowFontScaling={false}
@@ -206,6 +207,7 @@ exports[`ProfileScreen should render 1`] = `
                 "shadowRadius": null,
               }
             }
+            testID="openMenuButton"
           >
             <Text
               allowFontScaling={false}
