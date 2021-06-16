@@ -60,7 +60,6 @@ const Router = () => {
                 backgroundColor: '#29434e',
                 justifyContent: 'center',
                 alignItems: 'center',
-                flex: 1,
               },
             }}
           />
