@@ -171,6 +171,7 @@ exports[`SignInScreen should render 1`] = `
                   },
                 ]
               }
+              testID="usernameInput"
               underlineColorAndroid="rgba(0,0,0,0)"
               value=""
             />
@@ -260,6 +261,7 @@ exports[`SignInScreen should render 1`] = `
                   },
                 ]
               }
+              testID="passwordInput"
               underlineColorAndroid="rgba(0,0,0,0)"
               value=""
             />
@@ -302,6 +304,7 @@ exports[`SignInScreen should render 1`] = `
               "shadowRadius": undefined,
             }
           }
+          testID="signInButton"
         >
           <Text
             style={

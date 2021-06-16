@@ -25,6 +25,7 @@ const SignInScreen = () => {
           <Item>
             <Icon name="person" style={{ color: '#FFFFFF' }} />
             <Input
+              testID='usernameInput'
               style={{ color: '#FFFFFF' }}
               placeholderTextColor="#BBBBBB"
               placeholder="Username"
@@ -35,6 +36,7 @@ const SignInScreen = () => {
           <Item>
             <Icon name="key" style={{ color: '#FFFFFF' }} />
             <Input
+              testID='passwordInput'
               style={{ color: '#FFFFFF' }}
               placeholder="Password"
               placeholderTextColor="#BBBBBB"
@@ -44,7 +46,7 @@ const SignInScreen = () => {
             />
           </Item>
         </Form>
-        <Button style={{ marginTop: 15, backgroundColor: '#29434e' }} full disabled={isLoading} onPress={onSignIn}>
+        <Button testID="signInButton" style={{ marginTop: 15, backgroundColor: '#29434e' }} full disabled={isLoading} onPress={onSignIn}>
           <Text>Sign In</Text>
         </Button>
       </Content>

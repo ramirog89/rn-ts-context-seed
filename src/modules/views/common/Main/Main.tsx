@@ -24,6 +24,7 @@ const Main = () => {
   if (isLoading) {
     return (
       <ActivityIndicator
+        testID="loadingSession"
         style={{ alignSelf: 'center', flex: 1 }}
         size="large"
         color="#777777"
@@ -33,7 +34,7 @@ const Main = () => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView testID="appContainer" style={{ flex: 1 }}>
       <ErrorBoundary>
         <Router />
       </ErrorBoundary>
